@@ -27,4 +27,74 @@ export class Sp2000Controller {
 
     return data;
   }
+
+  @Get('/v2/getSpeciesByFamilyId')
+  async getSpeciesByFamilyId(
+    @Query() params: { familyId: string; apiKey: string; page: number },
+  ): Promise<any> {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByFamilyId`,
+      {
+        params,
+      },
+    );
+
+    return data;
+  }
+
+  @Get('/v2/getSpeciesByScientificName')
+  async getSpeciesByScientificName(
+    @Query() params: { scientificName: string; apiKey: string; page: number },
+  ): Promise<any> {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByScientificName`,
+      {
+        params,
+      },
+    );
+
+    return data;
+  }
+
+  @Get('/v2/getSpeciesByCommonName')
+  async getSpeciesByCommonName(
+    @Query() params: { commonName: string; apiKey: string; page: number },
+  ): Promise<any> {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByCommonName`,
+      {
+        params,
+      },
+    );
+
+    return data;
+  }
+
+  @Get('/v2/getSpeciesByNameCode')
+  async getSpeciesByNameCode(
+    @Query() params: { nameCode: string; apiKey: string },
+  ): Promise<any> {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByNameCode`,
+      {
+        params,
+      },
+    );
+
+    return data;
+  }
+
+  @Get('/v2/getNameByKeyword')
+  async getNameByKeyword(
+    @Query() params: { keyword: string; apiKey: string },
+  ): Promise<any> {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.sp2000Service.getApiPrefix()}/v2/getNameByKeyword`,
+      {
+        params,
+      },
+    );
+
+    return data;
+  }
 }
