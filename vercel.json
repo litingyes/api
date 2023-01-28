@@ -1,20 +1,21 @@
 {
-  "buildCommand": "pnpm build",
-  "cleanUrls": true,
-  "devCommand": "pnpm start",
-  "framework": null,
-  "functions": {
-    "dist/main.js": {
-      "runtime": "@vercel/node@2.8.16"
-    }
-  },
-  "installCommand": "pnpm install",
-  "outputDirectory": "dist",
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "dist/main.js"
+      "src": "src/main.ts",
+      "use": "@vercel/node"
     }
   ],
-  "trailingSlash": true
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/main.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ]
+    }
+  ]
 }
