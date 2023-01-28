@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { Sp2000Controller } from './sp2000/sp2000.controller';
+import { Sp2000Module } from './sp2000/sp2000.module';
 
 @Module({
-  controllers: [Sp2000Controller],
+  imports: [Sp2000Module],
 })
 export class ProxyModule {}
