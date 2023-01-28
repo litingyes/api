@@ -1,0 +1,20 @@
+{
+  "buildCommand": "pnpm build",
+  "cleanUrls": true,
+  "devCommand": "pnpm start",
+  "framework": null,
+  "functions": {
+    "dist/main.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "installCommand": "pnpm install",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "dist/main.js"
+    }
+  ],
+  "trailingSlash": true
+}
