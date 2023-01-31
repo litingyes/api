@@ -1,6 +1,6 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
-import { EutilsService } from './eutils.service';
+import { Controller, Get, Query } from '@nestjs/common'
+import { HttpService } from '@nestjs/axios'
+import { EutilsService } from './eutils.service'
 
 @Controller('/proxy/ncbi/eutils')
 export class EutilsController {
@@ -11,29 +11,29 @@ export class EutilsController {
 
   @Get()
   getEutild() {
-    return this.eutilsService.getEutils();
+    return this.eutilsService.getEutils()
   }
 
   @Get('esearch')
   async callEsearch(
     @Query()
     params: {
-      db: string;
-      term: string;
-      usehistory?: string;
-      WebEnv?: string;
-      query_key?: string;
-      retstart?: string;
-      retmax?: string;
-      rettype?: string;
-      retmode?: 'json' | 'xml';
-      sort?: string;
-      field?: string;
-      idtype?: string;
-      datetype?: string;
-      reldate?: number;
-      mindate?: string;
-      maxdate?: string;
+      db: string
+      term: string
+      usehistory?: string
+      WebEnv?: string
+      query_key?: string
+      retstart?: string
+      retmax?: string
+      rettype?: string
+      retmode?: 'json' | 'xml'
+      sort?: string
+      field?: string
+      idtype?: string
+      datetype?: string
+      reldate?: number
+      mindate?: string
+      maxdate?: string
     },
   ) {
     const { data } = await this.httpService.axiosRef.get(
@@ -41,11 +41,11 @@ export class EutilsController {
       {
         params,
       },
-    );
+    )
 
     if (params.retmode === 'json') {
-      return data.esearchresult;
+      return data.esearchresult
     }
-    return this.eutilsService.parserXML(data).eSearchResult;
+    return this.eutilsService.parserXML(data).eSearchResult
   }
 }

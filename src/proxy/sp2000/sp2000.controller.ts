@@ -1,6 +1,6 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
-import { Sp2000Service } from './sp2000.service';
+import { Controller, Get, Query } from '@nestjs/common'
+import { HttpService } from '@nestjs/axios'
+import { Sp2000Service } from './sp2000.service'
 
 @Controller('/proxy/sp2000')
 export class Sp2000Controller {
@@ -11,7 +11,7 @@ export class Sp2000Controller {
 
   @Get()
   getSp2000() {
-    return this.sp2000Service.getSp2000();
+    return this.sp2000Service.getSp2000()
   }
 
   @Get('/v2/getFamiliesByFamilyName')
@@ -23,9 +23,9 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 
   @Get('/v2/getSpeciesByFamilyId')
@@ -37,9 +37,9 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 
   @Get('/v2/getSpeciesByScientificName')
@@ -51,9 +51,9 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 
   @Get('/v2/getSpeciesByCommonName')
@@ -65,9 +65,9 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 
   @Get('/v2/getSpeciesByNameCode')
@@ -79,9 +79,9 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 
   @Get('/v2/getNameByKeyword')
@@ -93,8 +93,8 @@ export class Sp2000Controller {
       {
         params,
       },
-    );
+    )
 
-    return data;
+    return data
   }
 }

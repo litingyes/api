@@ -1,7 +1,7 @@
-import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
-import { Sp2000Controller } from './sp2000.controller';
-import { Sp2000Service } from './sp2000.service';
+import { Module } from '@nestjs/common'
+import { HttpModule } from '@nestjs/axios'
+import { Sp2000Controller } from './sp2000.controller'
+import { Sp2000Service } from './sp2000.service'
 
 @Module({
   controllers: [Sp2000Controller],
