@@ -15,7 +15,27 @@ export class EutilsController {
   }
 
   @Get('esearch')
-  async callEsearch(@Query() params: { db: string; term: string }) {
+  async callEsearch(
+    @Query()
+    params: {
+      db: string;
+      term: string;
+      usehistory?: string;
+      WebEnv?: string;
+      query_key?: string;
+      retstart?: string;
+      retmax?: string;
+      rettype?: string;
+      retmode?: 'json' | 'xml';
+      sort?: string;
+      field?: string;
+      idtype?: string;
+      datetype?: string;
+      reldate?: number;
+      mindate?: string;
+      maxdate?: string;
+    },
+  ) {
     const { data } = await this.httpService.axiosRef.get(
       `${this.eutilsService.getApiPrefix()}/esearch.fcgi`,
       {
@@ -23,6 +43,9 @@ export class EutilsController {
       },
     );
 
+    if (params.retmode === 'json') {
+      return data.esearchresult;
+    }
     return this.eutilsService.parserXML(data).eSearchResult;
   }
 }
