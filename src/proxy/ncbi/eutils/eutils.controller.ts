@@ -14,6 +14,7 @@ export class EutilsController {
     return this.eutilsService.getEutils()
   }
 
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch
   @Get('esearch')
   async callEsearch(
     @Query()
