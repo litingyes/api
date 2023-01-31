@@ -44,10 +44,7 @@ export class EutilsController {
       },
     )
 
-    if (params.retmode === 'json') {
-      return data.esearchresult
-    }
-    return this.eutilsService.parserXML(data).eSearchResult
+    return data
   }
 
   // http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch

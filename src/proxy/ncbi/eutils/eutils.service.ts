@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-import { XMLParser } from 'fast-xml-parser'
 
 @Injectable()
 export class EutilsService {
@@ -9,10 +8,5 @@ export class EutilsService {
 
   getApiPrefix() {
     return 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils'
-  }
-
-  parserXML(xml: string) {
-    const parser = new XMLParser()
-    return parser.parse(xml)
   }
 }
