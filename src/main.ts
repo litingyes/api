@@ -10,7 +10,18 @@ const pkg = getPackageInfoSync('@liting-yes/api')
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
   app.enableCors()
-  app.use(helmet())
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: [`'self'`],
+          styleSrc: [`'self'`, `'unsafe-inline'`],
+          imgSrc: [`'self'`, 'data:', 'validator.swagger.io'],
+          scriptSrc: [`'self'`, `https: 'unsafe-inline'`],
+        },
+      },
+    }),
+  )
   app.use(
     rateLimit({
       windowMs: 15 * 60 * 1000,
