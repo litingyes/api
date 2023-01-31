@@ -102,4 +102,22 @@ export class EutilsController {
 
     return data
   }
+
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EGQuery
+  @Get('egquery')
+  async callEgquery(
+    @Query()
+    params: {
+      term: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/egquery.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
 }
