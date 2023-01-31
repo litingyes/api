@@ -28,7 +28,8 @@
     "@nestjs/swagger": "^6.1.4",
     "local-pkg": "^0.4.3",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.34.1",
