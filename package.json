@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@liting-yes/api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -25,6 +25,8 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^6.1.4",
+    "local-pkg": "^0.4.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
