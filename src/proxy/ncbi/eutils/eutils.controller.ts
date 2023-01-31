@@ -49,4 +49,60 @@ export class EutilsController {
     }
     return this.eutilsService.parserXML(data).eSearchResult
   }
+
+  // http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch
+  @Get('efetch')
+  async callEfetch(
+    @Query()
+    params: {
+      db: string
+      id: string
+      query_key?: string
+      WebEnv?: string
+      retmode?: 'text' | 'xml' | 'asn.1'
+      rettype?:
+        | 'docsum'
+        | 'uilist'
+        | 'xml'
+        | 'full'
+        | 'summary'
+        | 'gene_table'
+        | 'alignmentscores'
+        | 'fasta'
+        | 'homologene'
+        | 'native'
+        | 'acc'
+        | 'seqid'
+        | 'gb'
+        | 'gbc'
+        | 'gbwithparts'
+        | 'fasta_cds_na'
+        | 'gp'
+        | 'gpc'
+        | 'ipg'
+        | 'medline'
+        | 'abstract'
+        | 'flt'
+        | 'rsr'
+        | 'ssexemplar'
+        | 'chr'
+        | 'clinvarset'
+        | 'gtracc'
+      retstart?: string
+      retmax?: string
+      strand?: string
+      seq_start?: string
+      seq_stop?: string
+      complexity?: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/efetch.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
 }
