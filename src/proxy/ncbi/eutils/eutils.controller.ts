@@ -14,6 +14,11 @@ export class EutilsController {
     return this.eutilsService.getEutils()
   }
 
+  @Get('dblist')
+  getDblist() {
+    return this.eutilsService.getDblist()
+  }
+
   // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_EInfo_
   @Get('einfo')
   async callEinfo(
