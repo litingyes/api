@@ -14,6 +14,26 @@ export class EutilsController {
     return this.eutilsService.getEutils()
   }
 
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_EInfo_
+  @Get('einfo')
+  async callEinfo(
+    @Query()
+    params: {
+      db?: string
+      version?: string
+      retmode?: 'json' | 'xml'
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/einfo.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
+
   // https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch
   @Get('esearch')
   async callEsearch(
