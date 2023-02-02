@@ -236,4 +236,24 @@ export class EutilsController {
 
     return data
   }
+
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ECitMatch_
+  @Get('ecitmatch')
+  async callEcitmatch(
+    @Query()
+    params: {
+      db: string
+      rettype: 'xml'
+      bdata: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/ecitmatch.cgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
 }
