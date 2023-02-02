@@ -217,4 +217,23 @@ export class EutilsController {
 
     return data
   }
+
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ESpell_
+  @Get('espell')
+  async callEspell(
+    @Query()
+    params: {
+      db: string
+      term: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/espell.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
 }
