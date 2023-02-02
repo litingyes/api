@@ -87,6 +87,31 @@ export class EutilsController {
     return data
   }
 
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ESummary_
+  @Get('esummary')
+  async callEsummary(
+    @Query()
+    params: {
+      db: string
+      id?: string
+      query_key?: string
+      WebEnv?: string
+      retstart?: string
+      retmax?: string
+      retmode?: 'text' | 'xml' | 'asn.1'
+      version?: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/esummary.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
+
   // http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch
   @Get('efetch')
   async callEfetch(
