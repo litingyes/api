@@ -168,6 +168,38 @@ export class EutilsController {
     return data
   }
 
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ELink_
+  @Get('elink')
+  async callElink(
+    @Query()
+    params: {
+      db: string
+      dbfrom: string
+      cmd: string
+      id?: string
+      query_key?: string
+      WebEnv?: string
+      retmode?: string
+      idtype?: string
+      linkname?: string
+      term?: string
+      holding?: string
+      datetype?: string
+      reldate?: string
+      mindate?: string
+      maxdate?: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/elink.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
+
   // https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EGQuery
   @Get('egquery')
   async callEgquery(
