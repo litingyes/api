@@ -67,6 +67,26 @@ export class EutilsController {
     return data
   }
 
+  // https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_EPost_
+  @Get('epost')
+  async callEpost(
+    @Query()
+    params: {
+      db: string
+      id: string
+      WebEnv?: string
+    },
+  ) {
+    const { data } = await this.httpService.axiosRef.get(
+      `${this.eutilsService.getApiPrefix()}/esearch.fcgi`,
+      {
+        params,
+      },
+    )
+
+    return data
+  }
+
   // http://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.EFetch
   @Get('efetch')
   async callEfetch(
