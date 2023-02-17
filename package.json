@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "commit": "git-cz",
     "prepare": "git config core.hooksPath .git/hooks/ && npx simple-git-hooks",
-    "update:idioms": "ts-node crawler/idioms.ts"
+    "update:idioms": "ts-node crawler/idioms.ts",
+    "update:allegories": "ts-node crawler/allegories.ts"
   },
   "dependencies": {
     "@nestjs/axios": "^1.0.1",
