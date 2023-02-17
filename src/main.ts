@@ -18,7 +18,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config)
   SwaggerModule.setup('doc', app, document)
 
-  app.enableCors({ credentials: true })
+  app.enableCors()
   app.use(
     helmet({
       contentSecurityPolicy: false,
