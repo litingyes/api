@@ -18,6 +18,7 @@ export class Sp2000Controller {
   async getFamiliesByFamilyName(
     @Query() params: { familyName: string; apiKey: string; page: number },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getFamiliesByFamilyName`,
       {
@@ -32,6 +33,7 @@ export class Sp2000Controller {
   async getSpeciesByFamilyId(
     @Query() params: { familyId: string; apiKey: string; page: number },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByFamilyId`,
       {
@@ -46,6 +48,7 @@ export class Sp2000Controller {
   async getSpeciesByScientificName(
     @Query() params: { scientificName: string; apiKey: string; page: number },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByScientificName`,
       {
@@ -60,6 +63,7 @@ export class Sp2000Controller {
   async getSpeciesByCommonName(
     @Query() params: { commonName: string; apiKey: string; page: number },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByCommonName`,
       {
@@ -74,6 +78,7 @@ export class Sp2000Controller {
   async getSpeciesByNameCode(
     @Query() params: { nameCode: string; apiKey: string },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getSpeciesByNameCode`,
       {
@@ -88,6 +93,7 @@ export class Sp2000Controller {
   async getNameByKeyword(
     @Query() params: { keyword: string; apiKey: string },
   ): Promise<any> {
+    params.apiKey = params.apiKey ?? process.env.API_KEY_SP2000
     const { data } = await this.httpService.axiosRef.get(
       `${this.sp2000Service.getApiPrefix()}/v2/getNameByKeyword`,
       {
